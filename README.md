@@ -47,15 +47,13 @@ The Comment Microservice is responsible for managing comments and ensures they a
 - [Express.js](https://expressjs.com/)
 - [Node.js](https://nodejs.org/)
 - [RabbitMQ](https://www.rabbitmq.com/) (asynchronous messaging)
-
-### Post Microservice
-- [Express.js](https://expressjs.com/)
-- [GraphQL](https://graphql.org/)
-- [PostgreSQL](https://www.postgresql.org/)
 - [amqplib](https://www.npmjs.com/package/amqplib) (RabbitMQ client)
-
-### Comment Microservice
 - [PostgreSQL](https://www.postgresql.org/)
-- [amqplib](https://www.npmjs.com/package/amqplib)
+
+### Post Microservice (Unique Technologies)
+- [GraphQL](https://graphql.org/)
+
+### Comment Microservice (Unique Technologies)
+- REST API
 
 ---
