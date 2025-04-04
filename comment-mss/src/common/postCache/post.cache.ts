@@ -1,11 +1,16 @@
 import { UUID } from "crypto";
+import { dbDatasource } from "../../db-datasource";
+import { Post } from "../entity/post.entity";
+
+const postRepository = dbDatasource.getRepository(Post)
 
 export class PostCache {
 
     private inCachePosts = new Set();
 
-    storePost(uuid: UUID): void {
+    async storePost(uuid: UUID) {
         this.inCachePosts.add(uuid);
+        await postRepository.insert({uuid: uuid})
     };
 
     checkPost(uuid: UUID): boolean {
