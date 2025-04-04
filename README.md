@@ -44,6 +44,7 @@ The Comment Microservice is responsible for managing comments and ensures they a
 ## 🚀 Technologies
 
 ### Common Stack
+- [Express.js](https://expressjs.com/)
 - [Node.js](https://nodejs.org/)
 - [RabbitMQ](https://www.rabbitmq.com/) (asynchronous messaging)
 
@@ -54,7 +55,6 @@ The Comment Microservice is responsible for managing comments and ensures they a
 - [amqplib](https://www.npmjs.com/package/amqplib) (RabbitMQ client)
 
 ### Comment Microservice
-- [Express.js](https://expressjs.com/) *(optional or assumed if not mentioned)*
 - [PostgreSQL](https://www.postgresql.org/)
 - [amqplib](https://www.npmjs.com/package/amqplib)
 
