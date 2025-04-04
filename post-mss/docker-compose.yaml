@@ -1,0 +1,14 @@
+services:
+  postgres:
+    image: postgres:14
+    ports:
+      - 2346:5432
+    env_file:
+      - db.env
+    volumes:
+      - post_mss_volume:/var/lib/postgresql/data
+
+
+
+volumes:
+  post_mss_volume: {}

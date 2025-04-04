@@ -1,0 +1,22 @@
+@baseUrl = http://localhost:4001
+
+### FIND ALL ###
+
+GET {{baseUrl}}/comment/list
+
+### FIND ONE ###
+
+GET {{baseUrl}}/comment?uuid=132456
+
+### CREATE ###
+
+POST {{baseUrl}}/comment
+Content-Type: application/json
+
+{
+    "content": "Meu comentário C",
+    "author": "cc335c04-77cb-44be-a65a-431f30676061",
+    "post": "37a2a2d1-0546-45fb-8bc1-d067b0fcb8d5"
+}
+
+###

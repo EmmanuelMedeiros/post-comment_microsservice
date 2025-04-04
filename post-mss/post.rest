@@ -1,0 +1,35 @@
+@baseUrl = http://localhost:4000
+
+
+### Find All Posts
+
+POST {{baseUrl}}/post 
+Content-Type: application/json
+
+{
+    "query": "query { findAll {title, uuid, author} }"
+}
+
+### CREATE POST ###
+POST {{baseUrl}}/post
+Content-Type: application/json
+
+{
+  "query": "mutation create($title: String!, $author: String!) { create(title: $title, author: $author) { title, author, likes } }",
+  "variables": {
+    "title": "Post c",
+    "author": "4defab05-5833-443b-80d8-c4133e8ac309"
+  }
+}
+
+### DELETE POST ###
+
+POST {{baseUrl}}/post
+Content-Type: application/json
+
+{
+  "query": "mutation delete($uuid: String!) { delete(uuid: $uuid) }",
+  "variables": {
+    "uuid": "37a2a2d1-0546-45fb-8bc1-d067b0fcb8d5"
+  }
+}
