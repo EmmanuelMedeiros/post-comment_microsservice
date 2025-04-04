@@ -5,6 +5,7 @@ import { CreateCommentDTO } from "./dto/create-comment.dto";
 import { Comment } from "./entity/comment.entity";
 import { UUID } from "crypto";
 import { FindCommentDTO } from "./dto/find-comment.dto";
+import { postCache } from "../app";
 
 const commentRepository: Repository<Comment> = dbDatasource.getRepository(Comment);
 
@@ -30,6 +31,11 @@ export class CommentService {
 
     static async create(createCommentDTO: CreateCommentDTO): Promise<endMessage> {
         try {
+
+            if(!postCache.checkPost(createCommentDTO.post)) {
+                return ({status: 400, message: "This post does not exists!"});
+            };
+
             const insertComment:Comment = await commentRepository.save(createCommentDTO);
             return {status: 201, message: insertComment}
         }catch(err) {

@@ -1,6 +1,3 @@
-# REMOVE .ENV VARIABLES
-.env 
-
 #REMOVE NODE MODULES
 /node_modules
 node_modules 

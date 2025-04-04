@@ -35,10 +35,6 @@ module.exports = class CommentController {
     static async create(req: Request, res: Response) {
         const {content, author, post}: any = req.body;
 
-        if(!postCache.checkPost(post)) {
-            return res.status(400).json({error: "This post does not exists!"})
-        };
-
         const createCommentDTO: CreateCommentDTO = new CreateCommentDTO(
             content,
             author,

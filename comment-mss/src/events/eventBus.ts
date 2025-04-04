@@ -29,15 +29,8 @@ export class EventRabbitmq {
 
                     if(msg.fields.routingKey === TopicEnum["post.create"]) {    
                         postCache.storePost(postUUID);
-                        channel.ack(msg);
-                        
-                        const inCachePosts: Set<unknown> = postCache.allPosts();
-                        console.log("Existing posts: \n")
-                        inCachePosts.forEach((element, index) => {
-                            console.log(`${index}: ${element}`);
-                        })
-                        console.log("\n--------");
-                        console.log("End of posts");
+                        console.log(`Post ${postUUID} inserted in cache`)
+                        channel.ack(msg);                        
                         return;
                     };
 

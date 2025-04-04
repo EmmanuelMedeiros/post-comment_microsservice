@@ -10,7 +10,7 @@ export class PostCache {
 
     async storePost(uuid: UUID) {
         this.inCachePosts.add(uuid);
-        await postRepository.insert({uuid: uuid})
+        await postRepository.insert({uuid: uuid});
     };
 
     checkPost(uuid: UUID): boolean {
@@ -27,6 +27,10 @@ export class PostCache {
 
     allPosts(): Set<unknown> {
         return this.inCachePosts;
+    };
+
+    clearCache() {
+        
     }
 
 }
