@@ -16,12 +16,12 @@ dbDatasource.initialize()
 })
 
 app.use(express.json());
-app.use("/comment", commentRouter);
+app.use("/", commentRouter);
 
 const eventRabbitmq: EventRabbitmq = new EventRabbitmq();
 export const postCache: PostCache = new PostCache();
 
-app.listen(4001, () => {
-  console.log("Server running in port 4001");
+app.listen(3001, () => {
+  console.log("Server running in port 3001");
   eventRabbitmq.consumeMessage();
 });
