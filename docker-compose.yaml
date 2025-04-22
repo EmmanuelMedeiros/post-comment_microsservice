@@ -1,0 +1,30 @@
+services:
+  commentDB:
+    image: postgres:14
+    ports:
+      - 2345:5432
+    env_file:
+      - ./comment-mss/db.env
+    volumes:
+      - comment_volume:/var/lib/postgresql/data
+
+  postDB:
+    image: postgres:14
+    ports:
+      - 2346:5432
+    env_file:
+      - ./post-mss/db.env
+    volumes:
+      - post_mss_volume:/var/lib/postgresql/data
+
+  messageBroker:
+    image: rabbitmq:3-management
+    ports:
+      - 15672:15672
+      - 5672:5672
+    container_name: rabbitmq
+
+
+volumes:
+  comment_volume: {}
+  post_mss_volume: {}

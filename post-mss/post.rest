@@ -17,7 +17,7 @@ Content-Type: application/json
 {
   "query": "mutation create($title: String!, $author: String!) { create(title: $title, author: $author) { title, author, likes } }",
   "variables": {
-    "title": "Post c",
+    "title": "Post a",
     "author": "4defab05-5833-443b-80d8-c4133e8ac309"
   }
 }

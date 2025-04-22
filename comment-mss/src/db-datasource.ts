@@ -1,5 +1,6 @@
 import { DataSource } from "typeorm";
 import { Comment } from "./comment/entity/comment.entity";
+import { Post } from "./common/entity/post.entity";
 
 require('dotenv').config()
 
@@ -12,7 +13,7 @@ export const dbDatasource = new DataSource({
     database: process.env.DB_DATABASE,
     synchronize: true,
     logging: false,
-    entities: [Comment],
+    entities: [Comment, Post],
     migrations: [],
     subscribers: [],
 })

@@ -10,26 +10,6 @@ interface Event {
 
 export class EventRabbitmq {
 
-    async sendMessage(message: any, type: TopicEnum) {
-    
-        try {
-            const connection = await amqp.connect("amqp://localhost");
-            const channel = await connection.createChannel();
-
-            const event: Event = {
-                type: type,
-                data: message
-            };
-
-            setTimeout(() => {
-                connection.close();
-            }, 500)
-            
-        }catch(err) {
-            console.log(err)
-        }
-    };
-
     async consumeMessage() {
         try {
             const connection = await amqp.connect("amqp://localhost");
@@ -49,15 +29,8 @@ export class EventRabbitmq {
 
                     if(msg.fields.routingKey === TopicEnum["post.create"]) {    
                         postCache.storePost(postUUID);
-                        channel.ack(msg);
-                        
-                        const inCachePosts: Set<unknown> = postCache.allPosts();
-                        console.log("Existing posts: \n")
-                        inCachePosts.forEach((element, index) => {
-                            console.log(`${index}: ${element}`);
-                        })
-                        console.log("\n--------");
-                        console.log("End of posts");
+                        console.log(`Post ${postUUID} inserted in cache`)
+                        channel.ack(msg);                        
                         return;
                     };
 
@@ -70,10 +43,6 @@ export class EventRabbitmq {
 
                 }
             });
-
-            setTimeout(() => {
-                connection.close();
-            }, 500)
     
         } catch (err) {
             console.log("❌ Error consuming message:", err);

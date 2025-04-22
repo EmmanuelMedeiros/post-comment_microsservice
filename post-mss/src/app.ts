@@ -19,7 +19,7 @@ dbDatasource
 })
 
 app.use(
-    '/post',
+    '/',
     createHandler({
         schema: postSchema
     })
@@ -27,6 +27,6 @@ app.use(
 
 const events: EventRabbitmq = new EventRabbitmq();
 
-app.listen(4000, () => {
-    console.log("Server running in port 4000");
+app.listen(3002, () => {
+    console.log("Server running in port 3002");
 })
